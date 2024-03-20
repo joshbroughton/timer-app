@@ -5,16 +5,10 @@ import TimerView from './TimerView';
 
 export default function ListTimers() {
 	const timers = useSelector(state => state.timers.value);
-  console.log(timers)
 
 	return (
 		<div>
-			{timers.map((timer, i) => {
-				return (
-					<TimerView timer={timer} />
-				)
-			})}
+			{timers.map((timer, i) => <TimerView key={`timer-${i}`} index={i} {...timer} />)}
 		</div>
-
 	)
 }

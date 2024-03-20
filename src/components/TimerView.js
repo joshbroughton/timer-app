@@ -1,9 +1,14 @@
-export default function TimerView({ timer }) {
+import { useDispatch } from "react-redux";
+import { toggleTimer } from "../features/timers/timersSlice";
+
+export default function TimerView({ index, name, time, isRunning }) {
+  const dispatch = useDispatch();
+
   return(
     <div>
-      <h2>{timer.name}</h2>
-      <h1>{timer.time}</h1>
-      <button>Start</button>
+      <h2>{name}</h2>
+      <h1>{time}</h1>
+      <button onClick={() => dispatch(toggleTimer(index))}>{isRunning ? "Stop" : "Start"}</button>
     </div>
   )
 }
