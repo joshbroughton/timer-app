@@ -21,4 +21,4 @@ export const timersSlice = createSlice({
 // Action creators are generated for each case reducer function
 export const {} = timersSlice.actions
 
-export default timersSlice.reducer
+export default timersSlice.reducers;
