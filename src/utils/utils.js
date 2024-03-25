@@ -1,4 +1,5 @@
 const formatTime = (time) => {
+  const ms = Math.round(time / 100) % 10;
   const totalSeconds = time / 1000;
   const totalMinutes = totalSeconds / 60;
   const totalHours = totalMinutes / 60;
@@ -11,7 +12,7 @@ const formatTime = (time) => {
   const minutes = minutesRounded % 60;
   const hours = hoursRounded % 60;
 
-  return(`${hours}:${minutes}:${seconds}`)
+  return(`${hours}:${minutes}:${seconds}.${ms}`)
 }
 
 export { formatTime };

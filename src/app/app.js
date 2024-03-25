@@ -16,4 +16,4 @@ setInterval(() => {
 	const deltaTime = now - lastUpdateTime
 	lastUpdateTime = now
 	store.dispatch(update(deltaTime))
-}, 500)
+}, 100)
