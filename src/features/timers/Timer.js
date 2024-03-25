@@ -1,8 +1,8 @@
 class Timer {
-  constructor(name) {
+  constructor(name, time = 0, isRunning = false) {
     this.name = name;
-    this.time = 0;
-    this.isRunning = false;
+    this.time = time;
+    this.isRunning = isRunning;
   }
 }
 

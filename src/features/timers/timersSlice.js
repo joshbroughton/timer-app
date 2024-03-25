@@ -13,7 +13,9 @@ export const timersSlice = createSlice({
       state.value.push(new Timer(action.payload))
     },
     toggleTimer: (state, action) => {
-			state.value[action.payload].isRunning = !state.value[action.payload].isRunning
+      const index = action.payload;
+      const isRunning = state.value[index].isRunning;
+			state.value[index] = new Timer(state.value[index].name, state.value[index].time, !isRunning);
 		},
   },
 })
