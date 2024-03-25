@@ -10,17 +10,22 @@ export const timersSlice = createSlice({
   initialState,
   reducers: {
     addTimer: (state, action) => {
-      state.value.push(new Timer(action.payload))
+      state.value.push({ name: action.payload, time: 0, isRunning: false });
     },
     toggleTimer: (state, action) => {
-      const index = action.payload;
-      const isRunning = state.value[index].isRunning;
-			state.value[index] = new Timer(state.value[index].name, state.value[index].time, !isRunning);
+      state.value[action.payload].isRunning = !state.value[action.payload].isRunning;
 		},
+    update: (state, action) => {
+      state.value.forEach(timer => {
+        if (timer.isRunning) {
+          timer.time += action.payload
+        }
+      })
+    },
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { addTimer, toggleTimer } = timersSlice.actions
+export const { addTimer, toggleTimer, update } = timersSlice.actions
 
 export default timersSlice.reducer;
