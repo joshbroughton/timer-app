@@ -10,8 +10,10 @@ export default function TimerView({ index, name, time, isRunning }) {
     <div className="TimerView">
       <h2>{name}</h2>
       <h1>{formatTime(time)}</h1>
-      <button onClick={() => dispatch(toggleTimer(index))}>{isRunning ? "Stop" : "Start"}</button>
-      <button onClick={() => dispatch(removeTimer(index))}>Delete</button>
+      <div className="buttons">
+        <button className="button" onClick={() => dispatch(toggleTimer(index))}>{isRunning ? "Stop" : "Start"}</button>
+        <button className="button" onClick={() => dispatch(removeTimer(index))}>Delete</button>
+      </div>
     </div>
   )
 }
