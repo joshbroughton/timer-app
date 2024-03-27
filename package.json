@@ -1,5 +1,7 @@
 {
   "name": "timer-app",
+  "main": "public/electron.js",
+  "type": "module",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -18,7 +20,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "electron-dev": "concurrently \"BROWSER=none npm start\" \"wait-on http://127.0.0.1:3000 && electron .\""
   },
   "eslintConfig": {
     "extends": [
@@ -37,5 +40,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "electron": "^29.1.5",
+    "electron-builder": "^24.13.3",
+    "electron-is-dev": "^3.0.1",
+    "wait-on": "^7.2.0"
   }
 }
